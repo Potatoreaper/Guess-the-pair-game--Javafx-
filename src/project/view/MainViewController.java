@@ -139,17 +139,21 @@ public class MainViewController {
 			//prevBtn = null;
 		}
 		
+		//winning case
 		if (Integer.valueOf(pairsLabel.getText()) == 8) {
 			int seconds, minutes;
+			
 			minutes = Integer.valueOf((timerLabel.getText()).substring(0, timerLabel.getText().indexOf(':')));
 			seconds = Integer.valueOf((timerLabel.getText()).substring(timerLabel.getText().indexOf(':')+1));
 			timeline.pause();
 			Alert info = new Alert(AlertType.INFORMATION,
 					"You've found all the matching pairs\n"
-					+ "in "+minutes+" minutes and "+seconds+" seconds with "+movesLabel.getText()+" moves\n"
+					+ "in "+minutes+(minutes == 1 ? " minute":" minutes")
+					+" and "+seconds+(seconds == 1? " second":" seconds")
+					+ " with "+movesLabel.getText()+" moves\n"
 					+ "Congratulations!\n"
 					+ "Press reset to play again.");
-			info.setHeaderText("Win!");
+			info.setHeaderText("You Win!");
 			info.setTitle("Guess the Pairs");
 			info.showAndWait();
 		}

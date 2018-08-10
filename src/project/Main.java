@@ -16,7 +16,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Guess the Pairs");
-        this.primaryStage.getIcons().add(new Image("project/view/image/icon.png"));
+		String url = Main.class.getResource("view/image/icon.png").toExternalForm();
+        this.primaryStage.getIcons().add(new Image(url));
         
 		showMainView();
 	}
